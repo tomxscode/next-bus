@@ -16,14 +16,15 @@ var
   ;
 if (currentMinutes.length == 1) {
   let tempMinutes = currentMinutes;
-  currentMinutes = '0' + tempMinutes;
+  currentMinutes = parseInt('0' + tempMinutes);
 } else if (actualHour.length == 1) {
   let tempHour = actualHour;
-  actualHour = '0' + tempHour;
+  actualHour = parseInt('0' + tempHour);
 }
-currentHour = toString(actualHour) + toString(currentMinutes);
+currentHour = parseInt(actualHour) + '' + parseInt(currentMinutes);
 
 btn.onclick = function() {
+  console.log(currentHour, selectedHour);
   console.log(selHour, selectedMinutes, ' / ' , actualHour, currentMinutes);
   let nextBusMinutes = selectedHour - currentHour;
   console.log(nextBusMinutes);
