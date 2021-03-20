@@ -45,4 +45,9 @@ btn.onclick = function() {
     }
     console.log('Queda(n): ', hoursRest, ' hora(s) y ', minutesRest, ' minutos.');
   }
+  if (hoursRest === 0) {
+    busHour.value = nextBusMinutes + ' minutos';
+  } else {
+    busHour.value = hoursRest + ' hora(s) y ' + minutesRest + ' minutos';
+  }
 }
