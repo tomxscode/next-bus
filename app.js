@@ -23,8 +23,6 @@ if (currentMinutes.length == 1) {
 }
 currentHour = parseInt(actualHour + currentMinutes);
 
-console.log(currentHour, selectedHour);
-
 btn.onclick = function() {
   var hoursRest = 0,
       minutesRest = 0;
