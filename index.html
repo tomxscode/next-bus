@@ -4,27 +4,27 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>NextBus</title>
 </head>
 <body>
-  <select id="hours">
-    <option value="2358">13:00</option>
-    <option value="1730">17:30</option>
-    <option value="1800">18:00</option>
-    <option value="2015">20:15</option>
-  </select>
+  <section class="busArea">
+    <div class="areaSelection">
+      to make
+    </div>
+    <div class="nextBus">
+      <h3>Próximo bus dentro de:</h3>
+      <input 
+        type="text" 
+        readonly
+        id="busHour"
+      >
+    </div>
+    <div class="buttonArea">
+      <button id="calculate">Buscar Bus</button>
+    </div>
+  </section>
 
-  <div class="nextBus">
-    <h3>Próximo bus:</h3>
-    <input 
-      type="text" 
-      readonly
-      id="busHour"
-    >
-  </div>
-
-    <button id="calculate">Buscar Bus</button>
-
-    <script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

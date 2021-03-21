@@ -1,11 +1,11 @@
 const
-  hours = document.querySelector('#hours'),
+//  hours = document.querySelector('#hours'),
   btn = document.querySelector('#calculate')
   ;
 var
   date = new Date(),
   currentHour = date.getHours() + '' + date.getMinutes(),
-  selectedHour = hours.value,
+  selectedHour = '0130',
   busHour = document.querySelector('#busHour')
   ;
 var
@@ -17,11 +17,11 @@ var
 if (currentMinutes.length == 1) {
   let tempMinutes = currentMinutes;
   currentMinutes = '0' + tempMinutes;
-} else if (actualHour.length == 1) {
+} else if (parseInt(actualHour) < 10) {
   let tempHour = actualHour;
   actualHour = '0' + tempHour;
 }
-currentHour = parseInt(actualHour + currentMinutes);
+currentHour = actualHour + currentMinutes;
 
 btn.onclick = function() {
   var hoursRest = 0,
@@ -29,13 +29,15 @@ btn.onclick = function() {
   let nextBusMinutes = selectedHour - currentHour;
   if (actualHour == selHour) { // cuando es en la misma hora
     //busHour.value = nextBusMinutes + ' minutos';
-    minutesRest = nextBusMinutes;
+    minutesRest = selectedMinutes - currentMinutes;
   } else if ((actualHour + 1) == selHour) { // cuando es en la siguiente hora
     let x = 60 - currentMinutes;
     console.log(x);
     let y = x + selectedMinutes;
     console.log(y, ' minutos');
     minutesRest = y;
+    minutesRest = selectedMinutes - currentHour;
+    console.log(minutesRest)
   }
   if (hoursRest === 0) {
     busHour.value = nextBusMinutes + ' minutos';
