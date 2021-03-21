@@ -30,7 +30,7 @@ btn.onclick = function() {
   console.log(selHour, selectedMinutes, ' / ' , actualHour, currentMinutes);
   let nextBusMinutes = selectedHour - currentHour;
   console.log(nextBusMinutes);
-  if (nextBusMinutes <= 59) {
+  if (actualHour == selHour) {
     console.log('Faltan: ', nextBusMinutes, ' minutos para el bus seleccionado.');
   } else if (nextBusMinutes >= 60) {
     console.log('Faltan ', nextBusMinutes);
