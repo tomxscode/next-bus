@@ -26,34 +26,22 @@ currentHour = parseInt(actualHour + currentMinutes);
 btn.onclick = function() {
   var hoursRest = 0,
       minutesRest = 0;
-  console.log(currentHour, selectedHour);
-  console.log(selHour, selectedMinutes, ' / ' , actualHour, currentMinutes);
   let nextBusMinutes = selectedHour - currentHour;
-  console.log(nextBusMinutes);
-  if (actualHour == selHour) {
-    //console.log('Faltan: ', nextBusMinutes, ' minutos para el bus seleccionado.');
-    busHour.value = nextBusMinutes + ' minutos';
-  } else if ((actualHour + 1) == selHour) {
-    let x = 60 - selectedMinutes;
+  if (actualHour == selHour) { // cuando es en la misma hora
+    //busHour.value = nextBusMinutes + ' minutos';
+    minutesRest = nextBusMinutes;
+  } else if ((actualHour + 1) == selHour) { // cuando es en la siguiente hora
+    let x = 60 - currentMinutes;
     console.log(x);
-    let y = x + currentMinutes;
-    console.log(y);
-  } else if (nextBusMinutes >= 60) {
-    console.log('Faltan ', nextBusMinutes);
-    for (let x = 0; x < nextBusMinutes; x++) {
-      if (nextBusMinutes > 60) {
-        nextBusMinutes = nextBusMinutes - 60;
-        console.log(nextBusMinutes, ', index: ', x);
-        hoursRest = x;
-        minutesRest = nextBusMinutes;
-        if (nextBusMinutes < 60) { break; }
-      }
-    }
-    console.log('Queda(n): ', hoursRest, ' hora(s) y ', minutesRest, ' minutos.');
+    let y = x + selectedMinutes;
+    console.log(y, ' minutos');
+    minutesRest = y;
   }
   if (hoursRest === 0) {
     busHour.value = nextBusMinutes + ' minutos';
+  } else if (hoursRest == 1) {
+    busHour.value = hoursRest + ' hora y ' + minutesRest + ' minutos';
   } else {
-    busHour.value = hoursRest + ' hora(s) y ' + minutesRest + ' minutos';
+    busHour.value = hoursRest + ' horas y ' + minutesRest + ' minutos';
   }
 }
