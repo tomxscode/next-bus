@@ -16,14 +16,15 @@
       Hora del bus
 */
 var busDB = '{"busRoute": [' +
-              '{"route": 1, "price": 1000, "hour": "0630"},' +
-              '{"route": 1, "price": 1000, "hour": "0730"},' +
-              '{"route": 1, "price": 1000, "hour": "2350"}' +
+              '{"route": "1", "price": 1000, "hour": "0630"},' +
+              '{"route": "1", "price": 1000, "hour": "0730"},' +
+              '{"route": "1", "price": 1000, "hour": "1100"},' +
+              '{"route": "1", "price": 1000, "hour": "1550"},' +
+              '{"route": "2", "price": 1000, "hour": "1550"}' +
             ']}';
 
 var db = JSON.parse(busDB);
 
-console.log(db.busRoute[1].route);
 
 const
 //  hours = document.querySelector('#hours'),
@@ -36,17 +37,37 @@ var
   date = new Date(),
   currentHour = date.getHours() + '' + date.getMinutes(),
   selectedHour = '00',
-  busHour = document.querySelector('#busHour')
+  busHour = document.querySelector('#busHour'),
+  route = routeSelector.value;
   ;
 
-for (let i = 0; i < db; i++) {
-  console.log(i)
+document.onclick = function() {
+  route = routeSelector.value;
 }
+
+for (let i = 0; i < db.busRoute.length; i++) {
+  if (db.busRoute[i].route == route) {
+    if (db.busRoute[i].hour > currentHour) {
+      selectedHour = db.busRoute[i].hour;
+      console.log(selectedHour);
+      break;
+    }
+  }
+}
+// document.onclick = function() {
+//   for (let i = 0; i < db.busRoute.length; i++) {
+//     if (db.busRoute[i].route == route) {
+//       if (db.busRoute[i].hour > currentHour) {
+//         selectedHour = db.busRoute[i].hour;
+//         console.log(selectedHour);
+//         break;
+//       }
+//     }
+//   }
+// }
 
 var
   actualHour = currentHour.slice(0, 2),
-  selHour = selectedHour.slice(0, 2), 
-  selectedMinutes = selectedHour.slice(2, 4),
   currentMinutes = currentHour.slice(2, 4)
   ;
 if (currentMinutes.length == 1) {
@@ -59,6 +80,8 @@ if (currentMinutes.length == 1) {
 currentHour = actualHour + currentMinutes;
 
 btn.onclick = function() {
+  var selHour = selectedHour.slice(0, 2), 
+      selectedMinutes = selectedHour.slice(2, 4);
   var hoursRest = 0,
       minutesRest = 0;
   let nextBusMinutes = selectedHour - currentHour;
