@@ -110,4 +110,5 @@ btn.onclick = function() {
     busHour.value = hoursRest + ' horas y ' + minutesRest + ' minutos';
   }
   nextBusTime.value = selHour + ':' + selectedMinutes;
+  nextBusPrice.value = db.busRoute[route].price;
 }
