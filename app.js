@@ -1,11 +1,40 @@
+// json
+/*
+  SINTAXIS
+    ROUTE:
+      1 - RENAICO - LOS ANGELES
+      2 - RENAICO - ANGOL
+      3 - LOS ANGELES - RENAICO
+      4 - LOS ANGELES - ANGOL
+      5 - ANGOL - RENAICO
+      6 - ANGOL - LOS ANGELES
+
+    PRICE:
+      Precios
+    
+    HOUR:
+      Hora del bus
+*/
+var busDB = '\
+  {"route": 1, "price": 1000, "hour": 0630},\
+  {"route": 1, "price": 1000, "hour": 0730},\
+  {"route": 1, "price": 1000, "hour": 2350}';
+
+var db = JSON.parse(busDB);
+
+console.log(db.route, db.price, db.hour)
+
 const
 //  hours = document.querySelector('#hours'),
-  btn = document.querySelector('#calculate')
+  btn = document.querySelector('#calculate'),
+  nextBusTime = document.querySelector('#nextBusTime'),
+  nextBusPrice = document.querySelector('#nextBusPrice'),
+  routeSelector = document.querySelector('#routeSelector')
   ;
 var
   date = new Date(),
   currentHour = date.getHours() + '' + date.getMinutes(),
-  selectedHour = '0130',
+  selectedHour = db.hour,
   busHour = document.querySelector('#busHour')
   ;
 var
@@ -30,14 +59,19 @@ btn.onclick = function() {
   if (actualHour == selHour) { // cuando es en la misma hora
     //busHour.value = nextBusMinutes + ' minutos';
     minutesRest = selectedMinutes - currentMinutes;
-  } else if ((actualHour + 1) == selHour) { // cuando es en la siguiente hora
-    let x = 60 - currentMinutes;
+  }
+  else if (actualHour != selHour) { // cuando es cualquier otra hora
+    /*let x = 60 - currentMinutes;
     console.log(x);
     let y = x + selectedMinutes;
     console.log(y, ' minutos');
     minutesRest = y;
     minutesRest = selectedMinutes - currentHour;
-    console.log(minutesRest)
+    console.log(minutesRest)*/
+    let x = ((selHour * 60) - (actualHour * 60)) / 60;
+    console.log(x);
+    minutesRest = selectedMinutes - currentMinutes;
+    hoursRest = x;
   }
   if (hoursRest === 0) {
     busHour.value = nextBusMinutes + ' minutos';
@@ -46,4 +80,5 @@ btn.onclick = function() {
   } else {
     busHour.value = hoursRest + ' horas y ' + minutesRest + ' minutos';
   }
+  nextBusTime.value = selHour + ':' + selectedMinutes;
 }

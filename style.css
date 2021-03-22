@@ -20,7 +20,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  justify-content: center;
+  width: 80%;
+  height: 80%;
   background-color: #a1cae2;
   border-radius: 30px;
   padding: 2rem;
@@ -36,11 +38,11 @@ body {
 }
 
 h3 {
-  margin-bottom: .5rem;
   color: white;
 }
 
 input {
+  margin: .5rem 0;
   padding: 12px 6px;
   font-size: 14pt;
   border: none;
@@ -76,4 +78,28 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   width: 100%;
+}
+
+.areaSelection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: .5rem 0;
+}
+
+select {
+  width: 100%;
+  padding: 12px 6px;
+  border-radius: 5px;
+  border: none;
+  font-size: 13pt;
+}
+
+option {
+  transition: .3s ease;
+  background-color: white;
+}
+
+option:hover {
+  background-color: grey;
 }

@@ -10,7 +10,14 @@
 <body>
   <section class="busArea">
     <div class="areaSelection">
-      to make
+      <select id="routeSelector">
+        <option value="1">Renaico - Los Angeles</option>
+        <option value="2">Renaico - Angol</option>
+        <option value="3">Los Angeles - Renaico</option>
+        <option value="4">Los Angeles - Angol</option>
+        <option value="5">Angol - Renaico</option>
+        <option value="6">Angol - Los Angeles</option>
+      </select>
     </div>
     <div class="nextBus">
       <h3>Próximo bus dentro de:</h3>
@@ -18,6 +25,20 @@
         type="text" 
         readonly
         id="busHour"
+      >
+
+      <h3>Hora:</h3>
+      <input 
+        type="text" 
+        readonly
+        id="nextBusTime"
+      >
+
+      <h3>Precio:</h3>
+      <input 
+        type="text" 
+        readonly
+        id="nextBusPrice"
       >
     </div>
     <div class="buttonArea">
