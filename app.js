@@ -15,14 +15,15 @@
     HOUR:
       Hora del bus
 */
-var busDB = '\
-  {"route": 1, "price": 1000, "hour": 0630},\
-  {"route": 1, "price": 1000, "hour": 0730},\
-  {"route": 1, "price": 1000, "hour": 2350}';
+var busDB = '{"busRoute": [' +
+              '{"route": 1, "price": 1000, "hour": "0630"},' +
+              '{"route": 1, "price": 1000, "hour": "0730"},' +
+              '{"route": 1, "price": 1000, "hour": "2350"}' +
+            ']}';
 
 var db = JSON.parse(busDB);
 
-console.log(db.route, db.price, db.hour)
+console.log(db.busRoute[1].route);
 
 const
 //  hours = document.querySelector('#hours'),
@@ -34,9 +35,14 @@ const
 var
   date = new Date(),
   currentHour = date.getHours() + '' + date.getMinutes(),
-  selectedHour = db.hour,
+  selectedHour = '00',
   busHour = document.querySelector('#busHour')
   ;
+
+for (let i = 0; i < db; i++) {
+  console.log(i)
+}
+
 var
   actualHour = currentHour.slice(0, 2),
   selHour = selectedHour.slice(0, 2), 
