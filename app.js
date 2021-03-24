@@ -18,9 +18,13 @@
 var busDB = '{"busRoute": [' +
               '{"route": "1", "price": 1000, "hour": "0630"},' +
               '{"route": "1", "price": 1000, "hour": "0730"},' +
-              '{"route": "1", "price": 1000, "hour": "1100"},' +
-              '{"route": "1", "price": 1000, "hour": "1550"},' +
-              '{"route": "2", "price": 1000, "hour": "1550"}' +
+              '{"route": "1", "price": 1000, "hour": "0930"},' +
+              '{"route": "1", "price": 1000, "hour": "1130"},' +
+              '{"route": "1", "price": 1000, "hour": "1230"},' +
+              '{"route": "1", "price": 1000, "hour": "1400"},' +
+              '{"route": "1", "price": 1000, "hour": "1600"},' +
+              '{"route": "1", "price": 1000, "hour": "1700"}' +
+              '{"route": "1", "price": 1000, "hour": "2350"}' +
             ']}';
 
 var db = JSON.parse(busDB);
