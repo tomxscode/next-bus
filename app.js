@@ -23,7 +23,7 @@ var busDB = '{"busRoute": [' +
               '{"route": "1", "price": 1000, "hour": "1230"},' +
               '{"route": "1", "price": 1000, "hour": "1400"},' +
               '{"route": "1", "price": 1000, "hour": "1600"},' +
-              '{"route": "1", "price": 1000, "hour": "1700"}' +
+              '{"route": "1", "price": 1000, "hour": "1700"},' +
               '{"route": "1", "price": 1000, "hour": "2350"}' +
             ']}';
 
